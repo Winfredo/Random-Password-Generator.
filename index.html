@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <p class="first-text">Generate a</p>
+        <p class="second-text">random password</p>
+        <p class="last-text">Never use an insecure password again.</p>
+      </div>
+
+      <!-- For the button -->
+      <div>
+        <button class="button-el" onclick="generatePassword()">
+          Generate Password
+        </button>
+        <button class="reset-el" onclick="reset()">Reset</button>
+      </div>
+      <div class="borderline"></div>
+      <div class="password-container">
+        <p class="field-one"></p>
+        <p class="field-two"></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
