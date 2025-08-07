@@ -1,5 +1,7 @@
 body {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -44,7 +46,7 @@ body {
   color: white;
   border: none;
   padding: 8px 10px;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: pointer;
   font-size: 16px;
   font-weight: bold;
@@ -76,10 +78,24 @@ font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans
     background-color: #4adf86;
     color: white;
     border: none;
-    padding: 8px 50px;
-    border-radius: 5px;
+    padding: 8px 15px;
+    border-radius: 15px;
     cursor: pointer;
     font-size: 16px;
     font-weight: bold;
     margin-left: 20px;
+}
+
+.copied-text{
+  padding: 3px;
+  background-color:#1f65c7;
+  border-radius: 5px;
+  color: white;
+}
+
+.copied-el {
+  height: 24px;
+  text-align: center;
+  color: white;
+  margin-top: 10px;
 }

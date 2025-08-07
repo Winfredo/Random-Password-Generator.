@@ -1,102 +1,10 @@
-const characters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "a",
-  "b",
-  "c",
-  "d",
-  "e",
-  "f",
-  "g",
-  "h",
-  "i",
-  "j",
-  "k",
-  "l",
-  "m",
-  "n",
-  "o",
-  "p",
-  "q",
-  "r",
-  "s",
-  "t",
-  "u",
-  "v",
-  "w",
-  "x",
-  "y",
-  "z",
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "~",
-  "`",
-  "!",
-  "@",
-  "#",
-  "$",
-  "%",
-  "^",
-  "&",
-  "*",
-  "(",
-  ")",
-  "_",
-  "-",
-  "+",
-  "=",
-  "{",
-  "[",
-  "}",
-  "]",
-  ",",
-  "|",
-  ":",
-  ";",
-  "<",
-  ">",
-  ".",
-  "?",
-  "/",
-];
+import { characters } from "./data.js";
 
-let buttonEl = document.querySelector('.button-el')
-let resetBtn = document.querySelector('.reset-btn')
-
+let buttonEl = document.querySelector(".button-el");
+let resetBtn = document.querySelector(".reset-el");
 let fieldOne = document.querySelector(".field-one");
 let fieldTwo = document.querySelector(".field-two");
+let copiedText = document.querySelector(".copied-el");
 
 function reset() {
   fieldOne.textContent = "";
@@ -119,12 +27,17 @@ function generatePassword() {
 
 fieldOne.addEventListener("click", () => {
   if (fieldOne.textContent) {
-    navigator.clipboard.writeText(fieldOne.textContent)
+    navigator.clipboard
+      .writeText(fieldOne.textContent)
       .then(() => {
-        fieldOne.textContent = "Copied!";
-        setTimeout(generatePassword, 1000); // regenerate or restore after 1 sec
+        copiedText.innerHTML = `
+        <p class="copied-text">Copied!</p>
+        `;
+        setTimeout(() => {
+          copiedText.innerHTML = "";
+        }, 1000);
       })
-      .catch(err => {
+      .catch((err) => {
         console.error("Failed to copy password one:", err);
       });
   }
@@ -132,16 +45,21 @@ fieldOne.addEventListener("click", () => {
 
 fieldTwo.addEventListener("click", () => {
   if (fieldTwo.textContent) {
-    navigator.clipboard.writeText(fieldTwo.textContent)
+    navigator.clipboard
+      .writeText(fieldTwo.textContent)
       .then(() => {
-        fieldTwo.textContent = "Copied!";
-        setTimeout(generatePassword, 1000);
+        copiedText.innerHTML = `
+        <p class="copied-text">Copied!</p>
+        `;
+        setTimeout(() => {
+          copiedText.innerHTML = "";
+        }, 1000);
       })
-      .catch(err => {
-        console.error("Failed to copy password two:", err);
+      .catch((err) => {
+        console.error("Failed to copy password one:", err);
       });
   }
 });
 
-buttonEl.addEventListener('click', generatePassword)
-resetBtn.addEventListener('click', reset)
+buttonEl.addEventListener("click", generatePassword);
+resetBtn.addEventListener("click", reset);
